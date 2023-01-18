@@ -1,0 +1,17 @@
+@import './button.css';
+@import './badge.css';
+
+p {
+  line-height: 1.7rem;
+}
+
+code,
+.code {
+  font-weight: 400;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  border: 1px solid rgba(var(--callout-border-rgb), 0.4);
+  border-radius: 6px;
+  padding: 0.1rem 0.3rem;
+  background-color: rgba(var(--callout-border-rgb), 0.2);
+}

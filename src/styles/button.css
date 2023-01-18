@@ -1,0 +1,28 @@
+.btn {
+  font-family: var(--main-font);
+  background-color: var(--color-primary);
+  color: rgb(var(--color-text-inverse));
+  font-weight: bolder;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  background-color: rgba(var(--color-primary-rgb), 0.9);
+  color: rgb(var(--color-text-inverse));
+}
+
+.btn-2x {
+  border-radius: 60px;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+}
+
+.btn-4x {
+  border-radius: 120px;
+  padding: 25px 60px;
+  font-size: 3rem;
+}

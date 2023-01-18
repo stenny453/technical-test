@@ -1,0 +1,155 @@
+.header {
+  padding: 10px 0;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  background: rgba(var(--color-bg2), 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 100;
+  border-bottom: 1px solid rgb(var(--color-divider));
+  box-shadow: 0px 0px 15px 0px rgba(var(--color-divider), 0.8);
+}
+
+.header > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.entrypoint a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(var(--color-primary-rgb));
+}
+
+.entrypoint a > span {
+  font-size: 14px;
+  margin-left: 10px;
+  font-weight: 300;
+  color: rgb(var(--color-secondary-rgb));
+}
+
+.entrypoint a > span > span {
+  font-size: 28px;
+  display: block;
+  font-weight: 500;
+  color: rgb(var(--color-primary-rgb));
+}
+
+.actions,
+.actions nav {
+  display: flex;
+}
+
+.actions nav ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.actions nav ul li {
+  list-style: none;
+  margin: 0 15px;
+}
+
+.actions nav ul li a {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.content {
+  margin: 0 auto 0;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  padding: 10px 0;
+  width: 100%;
+  background: rgba(var(--color-bg2), 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.footer p {
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
+}
+
+.header > *,
+.content > *,
+.footer > * {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.bg {
+  position: fixed;
+  width: 100vw;
+  height: 100vw;
+  z-index: -1;
+}
+
+.bg::before,
+.bg::after {
+  content: '';
+  left: 50%;
+  top: 25vh;
+  position: absolute;
+  filter: blur(45px);
+  transform: translateZ(0);
+  z-index: -1;
+}
+
+.bg::before {
+  background: var(--secondary-glow);
+  border-radius: 50%;
+  width: 480px;
+  height: 360px;
+  margin-left: -400px;
+  opacity: 0.2;
+}
+
+.bg::after {
+  background: var(--primary-glow);
+  width: 440px;
+  height: 380px;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.main-inner {
+  position: relative;
+  padding: 4rem 20px;
+}
+
+.main {
+  padding: 0 0 50px;
+}
+
+.main h1 {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.main h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 620px) {
+  .main-inner {
+    text-align: center;
+  }
+
+  .actions nav {
+    display: none;
+  }
+}

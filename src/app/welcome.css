@@ -1,0 +1,27 @@
+#welcome {
+  padding-top: 15vh;
+  text-align: center;
+  display: block;
+}
+
+.call-to-action {
+  display: block;
+  margin-top: 15vh;
+  margin-bottom: 10vh;
+}
+
+.section h2 {
+  margin-top: 5vh;
+  margin-bottom: 30px;
+}
+
+.section div,
+.section p {
+  line-height: 1.6rem;
+  text-align: left;
+  margin-top: 25px;
+}
+
+#instructions div ol li {
+  margin-top: 20px;
+}
