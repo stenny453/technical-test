@@ -1,8 +1,7 @@
 import path from 'path';
 import fs from 'fs';
-import stream from 'stream';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import proxyFile from '../../../lib/proxyfile';
+import proxyFile from '../../../lib/passthrough';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') {
@@ -10,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   const { file } = req.query;
-  const fullpath = path.resolve(path.join(process.cwd(), 'src/storages/data', file as string));
+  const fullpath = path.resolve(path.join(process.cwd(), 'storages/data', file as string));
 
   if (!fs.existsSync(fullpath)) {
     return res.status(404).json({ message: 'not found' });

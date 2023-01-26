@@ -1,0 +1,17 @@
+.btn-add {
+    width: 100%;
+    justify-content: center;
+}
+
+.item {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.4rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  background-color: rgba(var(--callout-border-rgb), 0.2);
+  color: rgba(var(--color-primary), 0.8);
+  margin: 25px;
+}

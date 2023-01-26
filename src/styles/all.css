@@ -12,6 +12,70 @@ code,
   font-size: 0.9rem;
   border: 1px solid rgba(var(--callout-border-rgb), 0.4);
   border-radius: 6px;
-  padding: 0.1rem 0.3rem;
+  padding: 0 0.4rem;
   background-color: rgba(var(--callout-border-rgb), 0.2);
+  display: inline-block;
+}
+
+.block {
+  display: block;
+}
+
+.typo {
+  font-size: 0.9rem;
+  line-height: 1.7rem;
+  margin-bottom: 1.5rem;
+}
+
+.typo h1,
+.typo h2,
+.typo h3,
+.typo h4,
+.typo h5,
+.typo h6 {
+  margin-top: 0.3rem;
+  margin-bottom: 1.4rem;
+}
+
+.typo p {
+  margin: 4px 0 12px;
+}
+
+.typo ul {
+  margin-bottom: 12px;
+}
+
+.typo li {
+  margin-left: 20px;
+}
+
+.typo h1,
+.typo h1 * {
+  font-size: 2.5rem;
+  line-height: 2.6rem;
+}
+
+.typo h1 * {
+  font-size: 2.2rem;
+}
+
+.typo blockquote {
+  border-left: 5px solid #5bb3c7;
+  padding: 10px 10px 20px 25px;
+  border-radius: 6px;
+  background-color: rgba(151, 197, 207, 0.1);
+}
+
+.typo .link {
+  color: var(--color-secondary);
+  font-weight: 500;
+}
+
+.typo .link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.typo img {
+  max-width: 100%;
 }

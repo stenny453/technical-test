@@ -1,0 +1,92 @@
+:root {
+  --light-color-background: #fff;
+  --light-color-background-secondary: #f2f2f2;
+  --light-color-text-default: #111;
+  --light-color-text-body: #444;
+  --light-color-text-secondary: #888;
+
+  --dark-color-background: #222;
+  --dark-color-background-secondary: #383838;
+  --dark-color-text-default: #fff;
+  --dark-color-text-body: rgba(#fff, 0.9);
+  --dark-color-text-secondary: rgba(#fff, 0.5);
+}
+
+.theme-toggle-container {
+  display: flex;
+  align-self: center;
+  margin-right: 10px;
+}
+
+.theme-toggle {
+  appearance: none;
+  width: 62px;
+  height: 32px;
+  display: inline-block;
+  position: relative;
+  border-radius: 50px;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color ease 0.3s;
+}
+
+.theme-toggle::before {
+  content: url('https://shivanarrthine.com/public/images/icons/moon.svg');
+  display: block;
+  position: absolute;
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+  background: var(--color-bg2);
+  left: 4px;
+  top: 4px;
+  border-radius: 50%;
+  text-indent: 4px;
+  line-height: 32px;
+  word-spacing: 37px;
+  white-space: nowrap;
+  transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
+}
+
+.theme-toggle:checked::before {
+  left: 32px;
+  content: url('https://shivanarrthine.com/public/images/icons/sun.svg');
+}
+
+.light .theme-toggle {
+  background: var(--light-color-background-secondary);
+}
+
+.light .theme-toggle::before {
+  background: var(--light-color-background);
+  color: var(--light-color-background-secondary);
+}
+
+.light .theme-toggle:checked {
+  background-color: var(--light-color-background-secondary);
+  border-color: var(--light-color-background);
+}
+
+.light .theme-toggle:checked::before {
+  background: var(--light-color-background);
+}
+
+.dark .theme-toggle {
+  background: var(--dark-color-background-secondary);
+}
+
+.dark .theme-toggle::before {
+  background: var(--dark-color-background);
+  color: var(--dark-color-background-secondary);
+}
+
+.dark .theme-toggle:checked {
+  background-color: var(--dark-color-background-secondary);
+  border-color: var(--dark-color-background);
+}
+
+.dark .theme-toggle:checked::before {
+  background: var(--dark-color-background);
+}

@@ -29,6 +29,10 @@ const nextConfig = {
 
     return config;
   },
+
+  env: {
+    RABBITMQ_URL: 'amqps://huksdsvy:44DelkMDY7PvL-psoCVnVA2MKpX4qPX2@rattlesnake.rmq.cloudamqp.com/huksdsvy',
+  }
 };
 
 module.exports = nextConfig

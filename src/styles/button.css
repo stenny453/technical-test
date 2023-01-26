@@ -26,3 +26,7 @@
   padding: 25px 60px;
   font-size: 3rem;
 }
+
+.btn[disabled] {
+  background-color: #aaa;
+}

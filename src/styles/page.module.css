@@ -3,18 +3,32 @@
   position: sticky;
   top: 0px;
   width: 100%;
-  background: rgba(var(--color-bg2), 0.7);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   z-index: 100;
-  border-bottom: 1px solid rgb(var(--color-divider));
-  box-shadow: 0px 0px 15px 0px rgba(var(--color-divider), 0.8);
+}
+
+[class='light'] .header {
+  background: rgba(var(--light-color-bg2), 0.7);
+  border-bottom: 1px solid rgb(var(--light-color-divider));
+  box-shadow: 0px 0px 15px 0px rgba(var(--light-color-divider), 0.8);
+}
+
+[class='dark'] .header {
+  background: rgba(var(--dark-color-bg2), 0.7);
+  border-bottom: 1px solid rgba(var(--dark-color-divider), 0.2);
+  box-shadow: 0px 0px 15px 0px rgba(var(--dark-color-divider), 0.8);
 }
 
 .header > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+[class='dark'] .logo {
+  filter: brightness(0) invert(0.85);
+  -webkit-filter: brightness(0) invert(0.85);
 }
 
 .entrypoint a {
@@ -24,6 +38,10 @@
   color: rgb(var(--color-primary-rgb));
 }
 
+[class='dark'] .entrypoint a {
+  color: #fff;
+}
+
 .entrypoint a > span {
   font-size: 14px;
   margin-left: 10px;
@@ -31,11 +49,23 @@
   color: rgb(var(--color-secondary-rgb));
 }
 
+[class='dark'] .entrypoint a > span {
+  color: #f3f3f3;
+}
+
 .entrypoint a > span > span {
   font-size: 28px;
   display: block;
   font-weight: 500;
   color: rgb(var(--color-primary-rgb));
+}
+
+[class='dark'] .entrypoint a > span > span {
+  color: #fff;
+}
+
+.actions > *:not(:last-child) {
+  margin-right: 15px;
 }
 
 .actions,
@@ -47,7 +77,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-right: 10px;
 }
 
 .actions nav ul li {
@@ -61,7 +90,7 @@
 }
 
 .content {
-  margin: 0 auto 0;
+  margin: 0 auto 80px;
 }
 
 .footer {
@@ -72,6 +101,10 @@
   background: rgba(var(--color-bg2), 0.7);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+}
+
+[class='dark'] .footer {
+  background: rgba(var(--dark-color-bg2), 0.6);
 }
 
 .footer p {
@@ -152,4 +185,12 @@
   .actions nav {
     display: none;
   }
+}
+
+.link {
+  color: rgb(var(--color-primary-rgb));
+}
+
+.link:hover {
+  color: rgb(var(--color-secondary-rgb));
 }

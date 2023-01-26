@@ -3,12 +3,12 @@ import matter from 'gray-matter';
 import { ChallengeMetadata } from '../types';
 
 const getChallengeMetadata = (): ChallengeMetadata[] => {
-  const folder = 'src/challenges/';
+  const folder = 'challenges/';
   const files = fs.readdirSync(folder);
   const markdownLs = files.filter((file) => file.endsWith('.md'));
 
   const posts = markdownLs.map((fileName) => {
-    const fileContents = fs.readFileSync(`src/challenges/${fileName}`, 'utf8');
+    const fileContents = fs.readFileSync(`challenges/${fileName}`, 'utf8');
     const matterResult = matter(fileContents);
     return {
       title: matterResult.data.title,

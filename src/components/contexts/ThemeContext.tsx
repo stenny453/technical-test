@@ -2,20 +2,31 @@
 
 import { createContext, useContext, PropsWithChildren } from 'react';
 
-export interface ThemeContextValue {
-  theme: 'dark' | 'light';
+export declare type ThemeValue = 'dark' | 'light';
+
+export interface ThemeContextValue<T extends string> {
+  theme: T;
 }
 
-interface ThemeProviderProps {
-  defaultTheme?: ThemeContextValue['theme'];
+interface ThemeProviderProps<T> {
+  defaultTheme?: T;
 }
 
-export const ThemeContext = createContext<ThemeContextValue>({
+export const ThemeContext = createContext<ThemeContextValue<ThemeValue>>({
   theme: 'light',
 });
 
-export const ThemeProvider = ({ children, defaultTheme }: PropsWithChildren<ThemeProviderProps>) => {
-  return <ThemeContext.Provider value={{ theme: defaultTheme || 'light' }}>{children}</ThemeContext.Provider>;
+export const ThemeProvider = ({ children, defaultTheme }: PropsWithChildren<ThemeProviderProps<ThemeValue>>) => {
+  return (
+    <ThemeContext.Provider
+      value={{
+        // @todo: handle this with a state, that can toggle between dark and light
+        theme: defaultTheme || 'light',
+      }}
+    >
+      {children}
+    </ThemeContext.Provider>
+  );
 };
 
 export const useTheme = () => {

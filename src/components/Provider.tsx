@@ -1,12 +1,17 @@
 'use client';
 
-import type { PropsWithChildren } from 'react';
-import { ThemeProvider, ThemeContextValue } from './contexts/ThemeContext';
+import { PropsWithChildren } from 'react';
+import { ThemeProvider, ThemeValue } from './contexts/ThemeContext';
+import { WalletProvider } from './Connect';
 
 interface Props {
-  theme?: ThemeContextValue['theme'];
+  theme?: ThemeValue;
 }
 
 export default function Provider({ children, theme }: PropsWithChildren<Props>) {
-  return <ThemeProvider defaultTheme={theme || 'light'}>{children}</ThemeProvider>;
+  return (
+    <ThemeProvider defaultTheme={theme}>
+      <WalletProvider>{children}</WalletProvider>
+    </ThemeProvider>
+  );
 }

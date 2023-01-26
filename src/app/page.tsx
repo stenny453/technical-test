@@ -14,7 +14,7 @@ export default function Home() {
         </p>
 
         <div className="call-to-action">
-          <Link className="btn btn-2x" href="/#instructions">
+          <Link className="btn btn-2x" href="/#instructions" scroll>
             Get Started!
           </Link>
         </div>
@@ -36,19 +36,37 @@ export default function Home() {
                 <h4>Make initial setup</h4>
                 <span>
                   Create your own fork of the repository in github, follow this link{' '}
-                  <a target="_blank" href="https://github.com/WAUIO/technical-test/fork" rel="noreferrer">
+                  <a target="_blank" className={styles['link']} href="https://github.com/WAUIO/technical-test/fork" rel="noreferrer">
                     https://github.com/WAUIO/technical-test/fork
                   </a>
                   . Then register remote URL using <code>git remote add fork [repository-fork-url]</code>. Now, create a new branch named{' '}
-                  <code>challenge/[surname]</code>, you will put all your changes in this new branch
+                  <code>challenge/[surname]</code>, you will put all your changes in this new branch.
                 </span>
+                <div>
+                  *Note: If you want to run the project locally, follow these steps:
+                  <br />
+                  <small>
+                    - You may need to use <code>yarn</code> (Package Manager) and <code>node version &gt;=16.0.0</code>
+                  </small>
+                  <br />
+                  <small>
+                    - Run <code>yarn install</code> to install dependencies
+                  </small>
+                  <br />
+                  <small>
+                    - Run <code>yarn dev</code> to start the project on{' '}
+                    <code>
+                      <a target="blank">http://localhost:3000</a>
+                    </code>
+                  </small>
+                </div>
               </li>
               <li>
                 <h4>First commit</h4>
                 <span>
                   Add yourself as an author in <code>package.json</code> file, then commit your changes and push them to your forked repository as
                   your 1st commit.
-                  <pre className="code">
+                  <pre className="code block">
                     {`...
 "author": {
   "name": "Your Name",
