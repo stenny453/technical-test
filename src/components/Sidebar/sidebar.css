@@ -1,2 +1,12 @@
 .sidebar.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 121px;
+    height: fit-content;
+}
+
+@media (max-width: 768px) {
+    .sidebar.sticky {
+        position: initial;
+    }
 }
