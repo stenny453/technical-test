@@ -6,6 +6,44 @@ interface FetchOptions extends RequestInit {
   timeout?: number;
 }
 
+const retryFlow = (func: Function, retriesLeft: number): Promise<Response> => { 
+  return new Promise((resolve, reject) => {
+    func()
+      .then((response: Response) => {
+        console.log("Left retries : ", retriesLeft);
+        if (response.status != 200 && retriesLeft > 0) {
+          return resolve(retryFlow(func, retriesLeft - 1));
+        } else {
+          resolve(response);
+        }
+      })
+      .catch((error: Error) => {
+        reject(error);
+      });
+  });
+};
+
+const timeoutFlow = (timeout: number, promise: Promise<Response>): Promise<Response> => { 
+  return new Promise((resolve, reject) => {
+    const timeoutId = setTimeout(() => {
+      resolve(promise);      
+      return false;
+    }, timeout);
+
+    promise.then(
+      (result: Response) => {
+        clearTimeout(timeoutId);
+        resolve(result);
+      },
+      (error: Error) => {
+        clearTimeout(timeoutId);
+        reject(error);
+      }
+    );
+  })
+};
+
+
 /**
  * Execute fetch with additional options, inlcuding retries and timeout
  *
@@ -31,5 +69,6 @@ interface FetchOptions extends RequestInit {
 export default async function fetchEnhanced(url: string, o: FetchOptions): Promise<Response> {
   const { retries = 0, timeout = 0, ...options } = o || {};
   console.log('additional options', { retries, timeout });
-  return fetch(url, options);
+
+  return timeoutFlow(timeout, retryFlow(() => fetch(url, options), retries));
 }
