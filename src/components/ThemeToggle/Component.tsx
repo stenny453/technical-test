@@ -1,10 +1,19 @@
 import React from 'react';
+import { ThemeContext, ThemeValue } from '../contexts/ThemeContext';
 import './styles.css';
 
 export default function Component() {
   const [checked, setChecked] = React.useState(true);
+
+  const { setTheme } = React.useContext(ThemeContext);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("Oops!, doesn't work, check /challenges/06-switch-theme to solve this issue");
+    const checked = e.target.checked;
+
+    // setTheme(e.target.checked); // can use for boolean
+
+    setTheme(checked ? 'light' : 'dark');
+
     setChecked(e.target.checked);
   };
 
