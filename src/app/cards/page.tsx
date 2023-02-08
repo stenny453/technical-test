@@ -3,7 +3,6 @@
 
 import { memo } from 'react';
 import CardPreview from '../../components/card/CardPreview';
-// import './../../components/card/styles.css';
 
 function CardListPage() {
   return (

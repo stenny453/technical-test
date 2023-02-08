@@ -2,6 +2,8 @@
 'use client';
 
 import { memo } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addTech, listItem } from '@/slices/techSlice';
 import './styles.css';
 
 /**
@@ -16,18 +18,18 @@ import './styles.css';
  */
 
 const ItemList = () => {
-
-    const techs = ["HTML/CSS", "React", "VueJs", "NodeJs", "Typescript", "Java", "Python", "PHP", "Go", "C#"];
+    const dispatch = useDispatch();
+    const techs = useSelector(listItem);
 
     const addJsToTheList = () => {
-
-    }
+        dispatch(addTech("Javascript"));
+    };
 
     return (
         <div>
             <ul>
                 {
-                    techs.map((tech) => <li key={`${tech.toLowerCase()}`} className="item">{tech}</li>)
+                    techs.map((tech, index) => <li key={`${tech.toLowerCase()}-${index}`} className="item">{tech}</li>)
                 }
             </ul>
             <button className='btn btn-add' onClick={addJsToTheList}>Add Javascript after NodeJs</button>
