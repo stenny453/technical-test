@@ -129,7 +129,7 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   height: 100vh;
 }
 
@@ -150,4 +150,13 @@ html.light {
 html[color-scheme='dark'],
 html.dark {
   color-scheme: dark;
+}
+
+@media screen and (max-width: 1100px) {
+  /* .intercom-namespace .intercom-1gvd5kx,  */
+  .intercom-lightweight-app-launcher,
+  .intercom-namespace .intercom-k9bhgt {
+    left: 20px !important;
+    right: 0px !important;
+  }
 }
