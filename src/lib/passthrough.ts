@@ -1,4 +1,5 @@
 import { ServerResponse } from 'http';
+import fs from 'fs';
 
 export default function passthrough(filepath: string, res: ServerResponse): ServerResponse {
   // @todo:
@@ -8,5 +9,11 @@ export default function passthrough(filepath: string, res: ServerResponse): Serv
   //   - X-Metadata: technical-test
   // to see result, check `http://localhost:3000/api/storages/working.json`
 
-  return res.end(`// @todo: implement this function, use \`PassThrough\` stream to show content of ${filepath}, then set additional headers`);
+  fs.createReadStream(`${filepath}`, 'utf8').pipe(res);
+  
+  res.setHeader('Cache-Control', 'max-age=3600, public');
+  res.setHeader('X-Metadata', 'technical-test');
+
+  return res;
 }
+
