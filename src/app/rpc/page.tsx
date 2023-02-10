@@ -37,7 +37,12 @@ const useFetch = <T extends unknown>(url: string, o?: RequestInit): [FetchOutput
 };
 
 function RPCPage() {
-  const [{ data, error, processing }, trigger] = useFetch('/api/rpccall');
+  const [{ data, error, processing }, trigger] = useFetch('/api/rpccall', {
+    method: "POST",
+    body: JSON.stringify({
+      payload: "gabriel's payload"
+    })
+  });
 
   return (
     <div style={{ marginTop: 20 }}>

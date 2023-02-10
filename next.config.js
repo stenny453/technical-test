@@ -32,6 +32,8 @@ const nextConfig = {
 
   env: {
     RABBITMQ_URL: 'amqps://huksdsvy:44DelkMDY7PvL-psoCVnVA2MKpX4qPX2@rattlesnake.rmq.cloudamqp.com/huksdsvy',
+    RABBITMQ_KEY: 'gabriel',
+    RABBITMQ_QUEUE: 'my.queue.gabriel'
   }
 };
 
