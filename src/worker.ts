@@ -13,8 +13,7 @@ new Promise(async (r) => {
     
     channel.consume(queue, async (message) => {
       const req = message?.content.toString();
-      const result: any = req?.toUpperCase();
-      channel.sendToQueue(message?.properties.replyTo, Buffer.from(result), {
+      channel.sendToQueue(message?.properties.replyTo, Buffer.from(req!!.toUpperCase()), {
         correlationId: message?.properties.correlationId
       });
 

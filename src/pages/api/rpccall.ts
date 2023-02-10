@@ -38,9 +38,7 @@ const processPayload = async (payload: string): Promise<string> => {
 
       channel.consume(queue, (message: ConsumeMessage | null) => {
         if (message?.properties.correlationId == correlationId) {
-          const result = message.content.toString();
-          console.log("response from worker ", result);
-          
+          const result = message.content.toString();          
           resolve(result);
           channel.ack(message as Message);
         }
